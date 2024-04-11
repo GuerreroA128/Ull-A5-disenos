@@ -8,34 +8,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Mostrar Imagenes"),
+        ),
+        body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  height: 250.0,
+                  width: 450.0,
+                  child: Image.asset("assets/buho.jpg", fit: BoxFit.fitWidth),
+                ),
+                SizedBox(
+                    height: 250.0,
+                    width: 450.0,
+                    child: Image.network(
+                      'https://cdn.pixabay.com/photo/2017/08/07/18/57/dog-2606759_640.jpg',
+                      fit: BoxFit.fitWidth,
+                    ))
+              ]),
         ),
       ),
     );
